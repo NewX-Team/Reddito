@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('wallet_transactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
+            $table->unsignedBigInteger('amount'); //tidak bisa negatif
+            $table->string('type');
+            $table->string('proof')->nullable();
+            $table->string('bank_name')->nullable();
+            $table->string('bank_account_name')->nullable();
+            $table->string('bank_account_number')->nullable();
+            $table->boolean('is_paid');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
