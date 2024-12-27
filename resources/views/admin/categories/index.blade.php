@@ -45,6 +45,7 @@
                 </p>
                 @endforelse
                 
+                {{$categories->links()}}
 
             </div>
         </div>
